@@ -7,9 +7,10 @@ A simple C script to monitor your laptop battery without too much cpu & memory f
 - `notify-send`
 - `mplayer`
 
-## Compile
+## Installation
 
-`gcc -o batterytator ./batterytator.c`
+- Git clone this repository
+- Use the command `make && sudo make install` to install the utility on your system
 
 ## Usage
 

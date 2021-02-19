@@ -1,5 +1,17 @@
 [Unit]
+After=multi-user.target
+Documentation=https://github.com/lefuturiste/batterytator
 Description=Battery monitoring service that send notifications
 
 [Service]
+Type=simple
+
 ExecStart=/usr/bin/batterytator
+ExecReload=
+ExecStop=
+
+Restart=always
+RestartSec=1s
+
+[Install]
+WantedBy=multi-user.target
