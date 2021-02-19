@@ -1,0 +1,5 @@
+[Unit]
+Description=Battery monitoring service that send notifications
+
+[Service]
+ExecStart=/usr/bin/batterytator
