@@ -2,9 +2,15 @@
 .PHONY: install
 
 base:
+	@echo "Compiling batterytator..."
 	gcc -o ./batterytator ./batterytator.c
+	whoami > ./tmp_install_user.txt
 
 install:
-	cp ./batterytator /usr/bin/batterytator
-	cp ./batterytator.service /usr/lib/systemd/system/
-	systemctl enable batterytator
+	sh ./install.sh
+
+uninstall:
+	(killall /usr/bin/batterytator) || true
+	rm -f /usr/bin/batterytator
+	rm -f /usr/lib/systemd/system/batterytator.service
+	@echo "Uninstallation completed."

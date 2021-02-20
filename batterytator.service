@@ -6,7 +6,10 @@ Description=Battery monitoring service that send notifications
 [Service]
 Type=simple
 
-ExecStart=/usr/bin/batterytator
+User=${BATTERYTATOR_USER}
+Group=${BATTERYTATOR_USER}
+
+ExecStart=/usr/bin/batterytator ${BAT_ID}
 ExecReload=
 ExecStop=
 
