@@ -9,12 +9,16 @@ Type=simple
 User=${BATTERYTATOR_USER}
 Group=${BATTERYTATOR_USER}
 
-ExecStart=/usr/bin/batterytator ${BAT_ID}
+ExecStart=/usr/bin/batterytator ${BATTERYTATOR_USER} ${BAT_ID}
 ExecReload=
 ExecStop=
 
 Restart=always
 RestartSec=1s
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=batterytator
 
 [Install]
 WantedBy=multi-user.target

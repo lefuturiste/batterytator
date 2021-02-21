@@ -1,8 +1,8 @@
 user=$(cat ./tmp_install_user.txt)
 
-echo "Using user: ${user}"
+echo "> Using user: ${user}"
 
-echo "Using battery: ${BAT_ID}"
+echo "> Using battery: ${BAT_ID}"
 
 # install the binary
 cp ./batterytator /usr/bin/batterytator
@@ -26,8 +26,11 @@ sed -i 's/REPLACE_BATTERY_ID/'${BAT_ID}'/g' ${unitPath}
 # clean the temporary file
 rm ./tmp_install_user.txt
 
-# enable & start the service
-systemctl enable batterytator
-systemctl start batterytator
+echo "> By default the systemd service is not started. But if you want you can type :"
 
-echo "The installaton script of batterytator was executed. Thanks!"
+echo "systemctl enable batterytator"
+echo "systemctl start batterytator"
+
+echo "I don't recommand systemd though, instead use your ~/.xinitrc"
+
+echo "> The installation script of batterytator was executed. Thanks!"

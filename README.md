@@ -4,8 +4,8 @@ A simple C script to monitor your laptop battery without too much cpu & memory f
 
 ## Requirements
 
-- `notify-send`
-- `mplayer`
+- `notify-send`, to send desktop notifications
+- `mplayer`, to play music file
 
 ## Installation
 
@@ -14,6 +14,15 @@ A simple C script to monitor your laptop battery without too much cpu & memory f
   - List the folders in the `/sys/class/power_supply/`.
   - Usually the right ID is `BAT1` or something like that
 - Use the command `env BAT_ID=YOUR_BAT_ID_HERE make && sudo make install` to install the utility on your system
+
+**I recommand to not use systemd but instead to just start batterytator from .xinitrc, so it gets access to notify-send**
+
+To do that, you have to append this line to your `~/.xinitrc :
+
+```
+# Start batterytator
+/usr/bin/batterytator {YOUR_USER} {YOUR_BAT_ID} &
+```
 
 ## Uninstallation
 
@@ -37,6 +46,8 @@ By default batterytator will run at startup you can still change this behavious:
 
 Execute the binary with the arguments:
 
-`./batterytator <Battery ID>` or `/usr/bin/batterytator <Battery ID>`
+`./batterytator <User> <Battery ID>` or `/usr/bin/batterytator <User> <Battery ID>`
 
-To get the value of `<Battery ID>`, 
+## Logs
+
+For now, logs are stored under `/home/{USER}/batterytator.log`, as you can tell not the best location.
